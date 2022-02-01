@@ -1,0 +1,11 @@
+<launch>
+	<include file="$(find mystery_package)/launch/launch_mystery.launch"/>
+	<group ns="mystery">
+		<node pkg="learning_ros" name="publisher" type="publisher.py"/>
+		
+		<node pkg="learning_ros" name="listener" type="listener.py"/>
+		
+		<node pkg="rqt_graph" name="rqt_graph" type="rqt_graph"/>
+		<node pkg="rqt_console" name="rqt_console" type="rqt_console"/>
+	</group>
+</launch>
