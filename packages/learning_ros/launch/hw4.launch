@@ -1,0 +1,22 @@
+<launch>
+	<param name="unit" type="string" value="Meters"/>
+	<group ns="hw2">
+		<remap from="/hw2/input" to="/mystery/input"/>
+		<node pkg="learning_ros" name="publisher" type="publisher.py"/>
+		<remap from="/hw2/output1" to="/mystery/output1"/>
+		<node pkg="learning_ros" name="listener" type="listener.py"/>
+	</group>
+	<group ns="mystery">
+		<node pkg="mystery_package" name="mystery_node" type="mystery_node.py"/>
+	</group>
+	<group ns="hw4">
+		<remap from="/hw4/output2" to="/mystery/output2"/>
+		<node pkg="learning_ros" name="converterNEW" type="converterNEW.py"/>
+	</group>
+	<group ns="mystery">
+		<remap from="/mystery/output2" to="/hw4/output3"/>
+		<node pkg="mystery_package" name="unit_listener" type="unit_listener.py"/>
+		<node pkg="rqt_graph" name="rqt_graph" type="rqt_graph"/>
+		<node pkg="rqt_console" name="rqt_console" type="rqt_console"/>
+	</group>
+</launch>

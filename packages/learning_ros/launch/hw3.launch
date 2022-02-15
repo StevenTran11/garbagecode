@@ -1,10 +1,9 @@
 <launch>
-	<include file="$(find mystery_package)/launch/launch_mystery.launch"/>
-	<group ns="mystery">
-		<node pkg="learning_ros" name="publisher" type="publisher.py"/>
+	<include file="$(find learning_ros)/launch/hw2.launch"/>
+	<group ns="hw3">
+		<remap from="/hw3/output2" to="/mystery/output2"/>
 		<node pkg="learning_ros" name="converter" type="converter.py"/>
 		<node pkg ="rostopic" name="rostopic" type="rostopic" output="screen" args="echo output3"/>
-	
 		<node pkg="rqt_graph" name="rqt_graph" type="rqt_graph"/>
 		<node pkg="rqt_console" name="rqt_console" type="rqt_console"/>
 	</group>
