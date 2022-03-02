@@ -1,0 +1,5 @@
+<launch>
+	<group ns="hw5">
+		<node pkg="learning_ros" name="convert" type="simpleConverter.py"/>
+	</group>
+</launch>
