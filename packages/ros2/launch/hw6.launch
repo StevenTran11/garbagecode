@@ -1,0 +1,8 @@
+<launch>
+	<include file="$(find odometry_hw)/launch/odom_hw.launch"/>
+	<group ns="hw6">
+		<remap from="/hw6/dist_wheel" to="/dist_wheel"/>
+		<remap from="/hw6/pose" to="/pose"/>
+		<node pkg="ros2" name="hw6" type="hw6.py"/>
+	</group>
+</launch>
