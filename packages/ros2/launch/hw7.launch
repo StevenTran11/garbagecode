@@ -1,5 +1,5 @@
 <launch>
-	<include file="$(find image_processing_hw)/launch/image_pub.launch"/>
+	<node name="image_pub" pkg="image_processing_hw" type="image_pub.py" args="$(find image_processing_hw)/sample_images/image$(arg index).png" />
 	<node pkg="ros2" name="hw7" type="hw7.py"/>
 	<node pkg="rqt_image_view" type="rqt_image_view" name="image_view_cropped" args="/image_cropped"/>
 	<node pkg="rqt_image_view" type="rqt_image_view" name="image_view_white" args="/image_white"/>
