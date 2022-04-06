@@ -1,0 +1,7 @@
+<launch>
+	<include file="$(find ros2)/launch/hw7.launch"/>
+	<node pkg="ros2" name="hw8" type="hw8.py"/>
+	<node pkg="rqt_image_view" type="rqt_image_view" name="image_edges" args="/image_edges"/>
+	<node pkg="rqt_image_view" type="rqt_image_view" name="image_lines_white" args="/image_lines_white"/>
+	<node pkg="rqt_image_view" type="rqt_image_view" name="image_lines_yellow" args="/image_lines_yellow"/>
+</launch>

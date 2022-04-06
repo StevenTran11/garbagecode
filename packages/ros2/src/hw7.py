@@ -28,16 +28,23 @@ class HW7:
 		lower_white = np.array([0,0,255-sensitivity])
 		upper_white = np.array([255,sensitivity,255])
 		mask1 = cv2.inRange(cv_white, lower_white, upper_white)
-		res1 = cv2.bitwise_and(cv_cropped,cv_cropped, mask= mask1)
+		#res1 = cv2.bitwise_and(cv_cropped,cv_cropped, mask= mask1)
 		#yellow filter
 		lower_yellow = np.array([22, 175, 0])
 		upper_yellow = np.array([45, 255, 255])
 		mask2 = cv2.inRange(cv_yellow, lower_yellow, upper_yellow)
-		res2 = cv2.bitwise_and(cv_cropped,cv_cropped, mask= mask2)
+		#res2 = cv2.bitwise_and(cv_cropped,cv_cropped, mask= mask2)
+		#erode
+		kernel = np.ones((3, 3), np.uint8)
+		mask1 = cv2.erode(mask1, kernel, iterations=1)
+		#mask2 = cv2.erode(mask2, kernel, iterations=1)
+		#dilation
+		mask1 = cv2.dilate(mask1, kernel, iterations=3)
+		mask2 = cv2.dilate(mask2, kernel, iterations=3)
 		#convert to Ros
 		ros_cropped = self.bridge.cv2_to_imgmsg(cv_cropped, "bgr8")
-		ros_white = self.bridge.cv2_to_imgmsg(res1, "bgr8")
-		ros_yellow = self.bridge.cv2_to_imgmsg(res2, "bgr8")
+		ros_white = self.bridge.cv2_to_imgmsg(mask1, "mono8")
+		ros_yellow = self.bridge.cv2_to_imgmsg(mask2, "mono8")
 		#publish image
 		self.pub1.publish(ros_cropped)
 		self.pub2.publish(ros_white)

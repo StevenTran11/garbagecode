@@ -1,6 +1,6 @@
 #!/bin/bash
 
-HW_PACKAGE="homework6"
+HW_PACKAGE="ros2"
 HW_LAUNCH="hw6.launch"
 
 source /environment.sh
