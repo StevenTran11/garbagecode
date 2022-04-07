@@ -28,7 +28,7 @@ class HW8:
 		cv_img2 = self.bridge.imgmsg_to_cv2(msg2, "mono8")
 		cv_img3 = self.bridge.imgmsg_to_cv2(msg3, "mono8")
 		#do canny
-		t_lower = 100 # Lower Threshold
+		t_lower = 50 # Lower Threshold
 		t_upper = 200 # Upper threshold
 		aperture_size = 3 # Aperture size
 		canny = cv2.Canny(cv_img1,t_lower, t_upper, apertureSize = aperture_size)
