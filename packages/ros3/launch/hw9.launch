@@ -1,0 +1,8 @@
+<launch>
+	<include file="$(find controls_hw)/launch/start_dynamics.launch"/>
+	<param name="controller_ready" value="false" />
+	<param name="Kp" value="0.5" />
+	<param name="Ki" value="0.0" />
+	<param name="Kd" value="0.8" />
+	<node pkg="ros3" name="hw9" type="hw9.py"/>
+</launch>
