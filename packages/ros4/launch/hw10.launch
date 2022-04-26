@@ -1,0 +1,7 @@
+<launch>
+	<include file="$(find example_action_server)/launch/fibonacci.launch"/>
+	<include file="$(find example_service)/launch/fibonacci.launch"/>
+	<node pkg="ros4" name="hw10" type="hw10.py"/>
+	<node pkg="rqt_graph" name="rqt_graph" type="rqt_graph"/>
+	<node pkg="rqt_console" name="rqt_console" type="rqt_console"/>
+</launch>
