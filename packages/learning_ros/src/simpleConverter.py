@@ -17,7 +17,7 @@ class simpleConverter:
 		self.RPS = np.array([-1,0])
 		self.RTS = np.array([[math.cos(self.sensorAngle),-math.sin(self.sensorAngle),self.RPS[0]], [math.sin(self.sensorAngle), math.cos(self.sensorAngle), self.RPS[1]], [0, 0, 1]])
 		self.WPR = np.array([3,2])
-		self.WTR = np.array([[math.cos(self.robotAngle), -math.sin(self.robotAngle),self.WPR[0]],[math.sin(self.robotAngle), -math.cos(self.robotAngle),self.WPR[1]], [0,0,1]])
+		self.WTR = np.array([[math.cos(self.robotAngle), -math.sin(self.robotAngle),self.WPR[0]],[math.sin(self.robotAngle), math.cos(self.robotAngle),self.WPR[1]], [0,0,1]])
 		self.SP = np.array([[0],[0],[1]])
 		self.WP = np.array([[0],[0],[1]])
 		self.sensorPos = np.array([[0],[0],[1]])
